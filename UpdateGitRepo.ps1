@@ -5,5 +5,5 @@ if (!$git) {
   $git = Read-Host;
   Set-Variable -Name git -Value $git;
 }
-ls -name -Exclude *.* | foreach {cd .\$_ ; .$git pull upstream master; .$git push origin master; cd ..}
+ls -name -Exclude *.* | foreach {cd .\$_ ; "Updating " + $(get-location) + " "; .$git pull upstream master; .$git push origin master; cd ..}
 Write-Host "Done.";
